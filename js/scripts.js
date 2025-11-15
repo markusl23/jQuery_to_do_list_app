@@ -2,12 +2,9 @@ function newItem(){
 
 //javascript
 //1. Adding a new item to the list of items: 
-   let li = document.createElement("li");
-   let inputValue = document.getElementById("input").value;
-   let text = document.createTextNode(inputValue);
-   li.appendChild(text);
+   let li = $('<li></li>').append($('#input').val());
 
-   if (inputValue === '') {
+   if (li.innerText === '') {
      alert("You must write something!");
    } else {
      $('#list').append(li);
@@ -21,9 +18,8 @@ function newItem(){
  	$('li').on("dblclick",crossOut);
 
  //3(i). Adding the delete button "X": 
-   let crossOutButton = document.createElement("crossOutButton");
- 	crossOutButton.appendChild(document.createTextNode("X"));
- 	li.appendChild(crossOutButton);
+   let crossOutButton = $('<crossOutButton>X</crossOutButton>');
+ 	 li.append(crossOutButton);
 
  	$('crossOutButton').on("click", deleteListItem);
  //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
